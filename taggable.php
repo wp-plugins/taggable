@@ -92,7 +92,7 @@ function taggable_submenu()
 	// load options from db to display
 	$sDisplayStyle = get_option('Taggable_sDisplayStyle');
 	if (!strlen($sDisplayStyle))
-		$sDisplayStyle = 'button';
+		$sDisplayStyle = 'names';
 
 	$sStyleButtonCheck = $sDisplayStyle == 'button' ? 'checked' : '';
 	$sStyleTextCheck = $sDisplayStyle == 'text' ? 'checked' : '';
