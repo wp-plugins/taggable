@@ -28,6 +28,8 @@ $gsTaggableDomain = 'taggable.com';
 function taggableFilter_appendToContent($sContent)
 {
 	global $gsTaggableDomain;
+	global $wp_version;
+	$iVersion = $wp_version;
 	$sUrl = get_permalink(); // we're "in the loop", so it uses current post
 	$sDisplayStyle = get_option('Taggable_sDisplayStyle');
 
@@ -39,6 +41,7 @@ function taggableFilter_appendToContent($sContent)
 
 	$sContent .= <<<EOM
 <script type="text/javascript">
+var Taggable_iWpVersion = '$iVersion';
 var Taggable_sUrlOfPage = '$sUrl';
 var Taggable_sDisplayStyle = '$sDisplayStyle';
 $sShowNamesCode
