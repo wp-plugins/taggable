@@ -3,7 +3,7 @@
 Plugin Name: Taggable
 Plugin URI: http://taggable.com
 Description: Taggable allows you to tag your Facebook friends on pages & posts.
-Version: 1.0.0
+Version: 1.1.0
 Author: The Start Project
 Author URI: http://thestartproject.com
 
@@ -44,6 +44,7 @@ function taggableFilter_appendToContent($sContent)
 var Taggable_iWpVersion = '$iVersion';
 var Taggable_sUrlOfPage = '$sUrl';
 var Taggable_sDisplayStyle = '$sDisplayStyle';
+var Taggable_bTaggableIcon = true;
 $sShowNamesCode
 </script>
 <script src="http://$gsTaggableDomain/js/button.js" type="text/javascript"></script>
@@ -54,8 +55,8 @@ EOM;
 
 function taggableAction_createTaggableBox()
 {
-	add_meta_box('', 'Taggable', 'taggable_boxContents', 'post', 'normal', 'high' );
-	add_meta_box('', 'Taggable', 'taggable_boxContents', 'page', 'normal', 'high' );
+	add_meta_box('taggable_entry', 'Taggable - People Tagging', 'taggable_boxContents', 'post', 'normal', 'high' );
+	add_meta_box('taggable_entry', 'Taggable - People Tagging', 'taggable_boxContents', 'page', 'normal', 'high' );
 }
 
 function taggable_boxContents()
@@ -68,11 +69,29 @@ function taggable_boxContents()
 	}
 	else
 	{
-		$sEncodedUrl = urlencode($sUrl);
-		print <<<EOM
-<iframe src="http://$gsTaggableDomain/?action=iFramedEditLink&mode=wordpress&url=$sEncodedUrl"
+/* old version
+<iframe name= "Taggable_iframeList" id="Taggable_iframeList" src="http://$gsTaggableDomain/?action=iFramedEditLink&mode=wordpress&url=$sEncodedUrl"
 	style="margin:0; padding:0; width:100%; height:60px; margin:0; padding:0;">
 </iframe>
+*/  
+		
+		$sEncodedUrl = urlencode($sUrl);
+		print <<<EOM
+<div id="taggableFrameHolder_wordpress" style="margin-top: 10px;"></div>
+<script type="text/javascript">
+var Taggable_sUrlOfPage = '$sEncodedUrl';
+frame = document.createElement('iframe');
+frame.setAttribute("id", "taggableIframe_wordpress");
+frame.setAttribute("frameBorder","0");
+frame.setAttribute("marginwidth","0");
+frame.setAttribute("marginheight","0");
+//frame.setAttribute("width","450");
+frame.setAttribute("height","350");
+frame.setAttribute("scrolling","no");
+frame.setAttribute("src", "http://$gsTaggableDomain/buttonDetails.php?service=wpAdmin&version=$iVersion&url="+Taggable_sUrlOfPage);
+frame.setAttribute("style",' width: 98%; height: 350px; margin-right: 20px;');
+document.getElementById('taggableFrameHolder_wordpress').appendChild(frame);
+</script>
 EOM;
 	}
 }

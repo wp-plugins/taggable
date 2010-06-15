@@ -3,7 +3,7 @@ Contributors: Nick Wilder, Narendra Rocherolle
 Tags: taggable, tags, people tags, facebook, twitter
 Requires at least: 2.0
 Tested up to: 2.9
-Stable tag: 1.0
+Stable tag: 1.1.0
 
 Taggable allows you to tag your Facebook friends on Pages and Posts.
 
@@ -21,3 +21,5 @@ Upload the Taggable plugin to your blog, activate it, and tag your friends in yo
 
 = 1.0.0 =
 * It begins.
+= 1.1.0 =
+* Inline tagging in admin panel.
