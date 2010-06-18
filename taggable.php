@@ -3,7 +3,7 @@
 Plugin Name: Taggable
 Plugin URI: http://taggable.com
 Description: Taggable allows you to tag your Facebook friends on pages & posts.
-Version: 1.1.0
+Version: 1.1.1
 Author: The Start Project
 Author URI: http://thestartproject.com
 
