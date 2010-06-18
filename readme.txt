@@ -3,7 +3,7 @@ Contributors: Nick Wilder, Narendra Rocherolle
 Tags: taggable, tags, people tags, facebook, twitter
 Requires at least: 2.0
 Tested up to: 3.0
-Stable tag: 1.1.0
+Stable tag: 1.1
 
 Taggable allows you to tag your Facebook friends on Pages and Posts.
 
